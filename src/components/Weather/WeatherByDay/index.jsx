@@ -6,7 +6,7 @@ import { formatTime, getCurrentTime } from '../../../helpers';
 
 const WeatherByDay = () => {
   const { dataLocation } = useSelector((state) => state.weatherReducer);
-  console.log(dataLocation);
+
   return (
     <div className="weather-day">
       <div className="weather-day-inner row">
