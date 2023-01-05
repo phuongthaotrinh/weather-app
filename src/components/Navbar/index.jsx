@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { convertText, getCurrentTime } from "../../helpers/useConvertWord";
-import { getDataCity } from "../../redux/weatherSlice";
+import { convertText, getCurrentTime } from "../../helpers";
+import { getDataByLocation, getDataCity } from "../../redux/weatherSlice";
 
 const NavBar = () => {
   const [search, setSearch] = useState("");
   const { dataCity } = useSelector((state) => state.weatherReducer);
-
-  let city = "Hà Nội"
+  let city = convertText("Hà Nội")
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getDataCity(city))
+    dispatch(getDataCity(city)).unwrap()
+      .then(({ coord }) => {
+        let data = { lat: coord?.lat, lon: coord?.lon }
+        dispatch(getDataByLocation(data))
+      })
   }, [dispatch]);
 
-
-  console.log("dataCity0", dataCity);
   const submitData = (e) => {
     e.preventDefault();
-    dispatch(getDataCity(search))
+    dispatch(getDataCity(search)).unwrap()
+      .then(({ coord }) => {
+        let data = { lat: coord?.lat, lon: coord?.lon }
+        dispatch(getDataByLocation(data))
+      })
+    setSearch("")
+
   };
 
   const handleFindCity = (e) => {
@@ -40,15 +47,18 @@ const NavBar = () => {
             onChange={(e) => handleFindCity(e)}
           />
         </form>
-        <img src={(`/src/images/${filterImage}.png`)} alt="" />
 
+        <img src={(`/src/assets/images/${filterImage}.png`)} alt="" />
         <h3>{dataCity?.name}</h3>
         <h2>{dataCity?.main?.temp}°C</h2>
         <h4> {getCurrentTime(Date.now())}</h4>
+        <p> {dataCity?.weather?.[0]?.description}</p>
+        <p> {dataCity?.weather?.[0]?.main} {`${dataCity?.clouds?.all} %`} </p>
         <div className="banner-side">
           <p>{dataCity?.name}</p>
-          <img src={("/src/images/banner.webp")} alt="" />
+          <img src={("/src/assets/images/banner.webp")} alt="" />
         </div>
+
       </div>
     </div>
   );
