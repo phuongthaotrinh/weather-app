@@ -5,7 +5,7 @@ import Home from './views/Home';
 import WeatherByDay from "./components/Weather/WeatherByDay"
 import WeatherByWeek from "./components/Weather/WeatherByWeek"
 import WeatherByHour from "./components/Weather/WeatherByHour"
-
+import "./styles/index.scss"
 
 const App = () => {
   return (

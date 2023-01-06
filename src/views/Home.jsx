@@ -5,7 +5,7 @@ import "./index.scss";
 
 const Home = () => {
    return (
-      <div className="homepage ">
+      <div className="homepage">
          <NavBar />
          <Weather />
       </div>

@@ -1,0 +1,50 @@
+.weather {
+  width: 75%;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: rgb(246, 246, 248);
+  overflow: auto;
+  height: 90vh;
+}
+.weather nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.weather nav ul {
+  display: flex;
+}
+.weather nav ul li {
+  margin: auto 0;
+}
+.weather nav ul li a {
+  color: #6c757d;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-right: 20px;
+}
+.weather nav img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.error_msg {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  padding: 1rem;
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.activeStyle {
+  color: #212529;
+  border-bottom: 3px solid #212529;
+}/*# sourceMappingURL=index.css.map */
