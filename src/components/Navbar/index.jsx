@@ -56,7 +56,7 @@ const NavBar = () => {
         <p> {dataCity?.weather?.[0]?.main} {`${dataCity?.clouds?.all} %`} </p>
         <div className="banner-side">
           <p>{dataCity?.name}</p>
-          <img src={("/src/assets/images/banner.webp")} alt="" />
+          <img src={require("/src/assets/images/banner.webp")} alt="" />
         </div>
 
       </div>
