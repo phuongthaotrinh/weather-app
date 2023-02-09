@@ -1,6 +1,6 @@
 import axiosClient from "./instance";
 
-let APIKEY = `${import.meta.env.VITE_API_KEY}`
+let APIKEY = "e5f1e0e91073e047bfd37039ad433153"
 
 export const WeatherApi = {
    getByCity(cityName) {
